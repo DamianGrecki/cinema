@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Strona Główna {% endblock %}
+{% block content %}
+
+<section class="intro">
+    <h2>Nadchodzące premiery</h2>
+    <p>Sprawdź nasze nadchodzące filmy, które warto zobaczyć w tym sezonie.</p>
+    <button>Zobacz więcej</button>
+</section>
+
+<section class="movies">
+    <div class="movie-card">
+        <img src="{% static 'img/movie1.jpg' %}" alt="Film 1">
+        <h3>Film 1</h3>
+        <p>Opis filmu 1</p>
+    </div>
+    <div class="movie-card">
+        <img src="{% static 'img/movie2.jpg' %}" alt="Film 2">
+        <h3>Film 2</h3>
+        <p>Opis filmu 2</p>
+    </div>
+    <!-- Dodaj wiêcej filmów -->
+</section>
+{% endblock %}
+{% block footer %}
+<p>2024 Kino. Wszystkie prawa zastrzeżone.</p>
+{% endblock %}
+
+
