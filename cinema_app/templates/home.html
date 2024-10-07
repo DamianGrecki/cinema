@@ -9,19 +9,17 @@
     <button>Zobacz więcej</button>
 </section>
 
-<section class="movies">
-    <div class="movie-card">
-        <img src="{% static 'img/movie1.jpg' %}" alt="Film 1">
-        <h3>Film 1</h3>
-        <p>Opis filmu 1</p>
-    </div>
-    <div class="movie-card">
-        <img src="{% static 'img/movie2.jpg' %}" alt="Film 2">
-        <h3>Film 2</h3>
-        <p>Opis filmu 2</p>
-    </div>
-    <!-- Dodaj wiêcej filmów -->
-</section>
+<div class="container">
+    <h2>Najnowsze Filmy</h2>
+    <section class="latest-movies">
+        {% for movie in latest_movies %}
+        <div class="movie-card">
+             <img src="{{ movie.image.url }}" alt="{{ movie.title }} Image">
+            <h3><a href="{% url 'movie' movie.id %}">{{ movie.title }}</a></h3>
+        </div>
+        {% endfor %}
+    </section>
+</div>
 {% endblock %}
 {% block footer %}
 <p>2024 Kino. Wszystkie prawa zastrzeżone.</p>
