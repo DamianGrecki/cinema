@@ -57,8 +57,9 @@ button:hover {
     background-color: #0056b3;
 }
 
-.movies {
+.latest-movies {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
 }
@@ -69,7 +70,9 @@ button:hover {
     margin: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 200px;
+    max-width: 200px; /* Maksymalna szerokoæ dla karty */
+    flex: 0 1 calc(33.333% - 30px); /* Trzy elementy w rzêdzie z uwzglêdnieniem marginesów */
+    box-sizing: border-box; /* Uwzglêdnia padding w szerokoci */
 }
 
 .movie-card img {
