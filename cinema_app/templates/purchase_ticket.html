@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Kup Bilet na Film{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1>Kup Bilet na film "{{ movie.title }}"</h1>
+    <p>Premiera: {{ movie.release_at|date:"d-m-Y" }}</p>
+    <img src="{{ movie.image.url }}" alt="Plakat filmu" class="film-poster">
+
+    <form method="POST" action="{% url 'purchase_ticket' movie.id %}">
+        {% csrf_token %}
+        <div class="seat-selection">
+            <h2>Wybierz miejsca</h2>
+            <div class="seats">
+                {% for row, seats in seating_chart.items %}
+                <div class="row">
+                    <h3>Rząd: {{ row }}</h3>
+                    {% for seat in seats %}
+                    <div class="seat">
+                        <input type="checkbox" name="seats" value="{{ seat.id }}" id="seat-{{ seat.id }}">
+                        <label for="seat-{{ seat.id }}">Miejsce: {{ seat.number }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <button type="submit" class="btn">Kup Bilet</button>
+    </form>
+
+</div>
+
+{% endblock %}

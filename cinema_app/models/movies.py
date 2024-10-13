@@ -8,6 +8,7 @@ class Movies(models.Model):
     release_at = models.DateTimeField(null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='media/', default='missing_movie_image.jpg')
+    objects = models.Manager()
 
     def __str__(self):
         return self.title
