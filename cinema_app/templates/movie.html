@@ -14,7 +14,7 @@
             {{ movie.description }}
         </p>
     </div>
-    <a href="#" class="button">Kup Bilet</a>
+<a href="{% url 'purchase_ticket' movie.id %}" class="button">Kup Bilet</a>
 </div>
 
 {% endblock %}
