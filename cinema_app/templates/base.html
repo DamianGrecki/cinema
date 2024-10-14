@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <!-- SweetAlert JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
     <title>{% block title %}{%endblock%}</title>
 </head>
 <body>
@@ -20,6 +25,16 @@
         </ul>
     </nav>
 </header>
+<script>
+    {% if error_message %}
+    swal({
+        title: "Błąd",
+        text: "{{ error_message }}",
+        icon: "error",
+        button: "OK",
+    });
+    {% endif %}
+</script>
 {% block content %}
 {% endblock %}
 </body>
